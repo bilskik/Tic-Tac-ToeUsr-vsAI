@@ -3,6 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "komputer.h"
+
 #define n 3
 #define max_name_length 100
 
@@ -92,7 +94,7 @@ int enter_value(int choice_1, int choice_2) {
         switch(holder) {
         case 1: {
             if(space[0][0] == 'X' || space[0][0] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[0][0]=mark;
@@ -100,7 +102,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 2: {
             if(space[0][1] == 'X' || space[0][1] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[0][1]=mark;
@@ -108,7 +110,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 3: {
             if(space[0][2] == 'X' || space[0][2] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[0][2]=mark;
@@ -116,7 +118,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 4: {
             if(space[1][0] == 'X' || space[1][0] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[1][0]=mark;
@@ -124,7 +126,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 5: {
             if(space[1][1] == 'X' || space[1][1] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[1][1]=mark;
@@ -132,7 +134,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 6: {
             if(space[1][2] == 'X' || space[1][2] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[1][2]=mark;
@@ -140,7 +142,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 7: {
             if(space[2][0] == 'X' || space[2][0] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[2][0]=mark;
@@ -148,7 +150,7 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 8: {
             if(space[2][1] == 'X' || space[2][1] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[2][1]=mark;
@@ -156,20 +158,31 @@ int enter_value(int choice_1, int choice_2) {
         }
         case 9: {
             if(space[2][2] == 'X' || space[2][2] == 'O') {
-                printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+                
                 return 1;
             }
             space[2][2]=mark;
             break;
         }
         default: {
-            printf("Wprowadz wartosc od 0-8\n");
-            return 1;
+            return 2;
             break;
         }
 
     }
     return 0;
+}
+int  entering_search(int a) {
+    if(a == 0)
+        return 0;
+    else if(a == 1) {
+        printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
+        return 1;
+    }
+    else {
+        printf("Wprowadz wartosc od 0-8\n");
+        return 1;
+    }
 }
 //looking for solution
 int look_for_sol(char mark) {
@@ -239,10 +252,9 @@ int main(int argc, char **argv) {
 
     initiation();
     initiation_show_space();
-
     int final_state = 1;
     char player_1_name[max_name_length];
-    char player_2_name[max_name_length];
+    char *player_2_name;
     int player_1_choice;
     int player_2_choice;
     int a;
@@ -255,15 +267,14 @@ int main(int argc, char **argv) {
 
     printf("Wprowadz imie 1 gracza!\n");
     scanf("%s", player_1_name);
-    printf("Wprowadz imie 2 gracza\n");
-    scanf("%s", player_2_name);
+    player_2_name= "Komputer";
 
-    if(games_counter == 0) {
+    /*if(games_counter == 0) {
         instruction(player_1_name, player_2_name);
         games_counter=1;
         sleep(7);
     }
-
+    */
     while(1) {
         
         sleep(1);
@@ -279,8 +290,9 @@ int main(int argc, char **argv) {
             player_2_choice=-1;
             scanf("%d", &player_1_choice);
             a=enter_value(player_1_choice, player_2_choice);
-            if(a == 0)
-                break;
+            int search = entering_search(a);
+            if (search == 0)
+                break;            
         }
         map();
         final_state=look_for_sol('X');
@@ -319,8 +331,8 @@ int main(int argc, char **argv) {
         printf("Ruch wykonuje gracz: %s: \n", player_2_name);
         while(1) {                                                         //entering a move (player 2)
             player_1_choice = -1;
-            scanf("%d", &player_2_choice);
-            a=enter_value(player_1_choice, player_2_choice);
+            player_2_choice = computer_move();
+            a = enter_value(player_1_choice, player_2_choice);
             if(a == 0)
                 break;
         }
