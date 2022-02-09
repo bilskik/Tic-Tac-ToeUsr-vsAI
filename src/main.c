@@ -4,11 +4,12 @@
 #include <unistd.h>
 
 #include "komputer.h"
+#include "Part_1.h"
 
 #define n 3
 #define max_name_length 100
 
-char space[n][n];
+extern char space[n][n];
 char show_space[n][n];
 
 //initiation a show_space[][] from 1 to 9
@@ -209,7 +210,6 @@ int look_for_sol(char mark) {
 
         for(int j=0; j<n; j++) {
             
-
             if(space[i][j] == mark) 
                 winning_counter_column++;
 
@@ -253,7 +253,8 @@ int main(int argc, char **argv) {
     initiation();
     initiation_show_space();
     int final_state = 1;
-    char player_1_name[max_name_length];
+    //char player_1_name[max_name_length];
+    char *player_1_name="Kamil";
     char *player_2_name;
     int player_1_choice;
     int player_2_choice;
@@ -265,8 +266,8 @@ int main(int argc, char **argv) {
     int tmp_draw;
 
 
-    printf("Wprowadz imie 1 gracza!\n");
-    scanf("%s", player_1_name);
+    //printf("Wprowadz imie 1 gracza!\n");
+    //scanf("%s", player_1_name);
     player_2_name= "Komputer";
 
     /*if(games_counter == 0) {
@@ -277,8 +278,8 @@ int main(int argc, char **argv) {
     */
     while(1) {
         
-        sleep(1);
-        system("clear");
+       // sleep(1);
+       // system("clear");
         printf("POMOC:\n");
         show_numbers();
         printf("\n");
