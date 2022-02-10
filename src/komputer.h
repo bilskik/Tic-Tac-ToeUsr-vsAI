@@ -6,4 +6,6 @@
 int computer_move();
 int look_for_case();
 int winning_case();
+int find_free();
+
 #endif

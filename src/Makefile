@@ -1,3 +1,3 @@
-all: main.c computer.c part_1_AI.c
-	gcc -o ./a.out  computer.c main.c part_1_AI.c
+all: main.c computer.c def_and_win_case.c Put_coordinates.c
+	gcc -o ./a.out  computer.c main.c def_and_win_case.c Put_coordinates.c
 
