@@ -333,14 +333,11 @@ int main(int argc, char **argv) {
         
 
         printf("Ruch wykonuje gracz: %s: \n", player_2_name);
-        int v = 0; 
+       
         while(1) { 
                                                                    //entering a move (player 2)
             player_1_choice = -1;
             player_2_choice = computer_move();
-            if(v == 4)
-                return 0;
-            v++;
             a = enter_value(player_1_choice, player_2_choice);
             if(a == 0)
                 break;
