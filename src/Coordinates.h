@@ -12,13 +12,14 @@ typedef struct coor {
 
 typedef struct important {
     int arr_coor[n];
+    char coor_char[n];
 }important_t;
 
 extern important_t* coor;
 
 int row_and_column_coordinates();
-void insert_row(int tmp_tab[]);
-void insert_column(int tmp_tab[]);
+void insert_row(int tmp_tab[], int x_counter[]);
+void insert_column(int tmp_tab[], int x_counter[]);
 int diagonal_coor_1();
 int diagonal_coor_2();
 

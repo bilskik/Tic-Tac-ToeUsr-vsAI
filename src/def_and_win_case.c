@@ -46,29 +46,30 @@ int defending_case() {
         }   
         
     }
-  //  printf("row: %d, column %d, diag_1 %d, diag_2 %d\n", winning_counter_row,winning_counter_column,winning_counter_diagonal_1,winning_counter_diagonal_2);
     if(winning_counter_diagonal_1 == 2) {
         int tmp = diagonal_coor_1();
         if(tmp == 0)
             return 2;
     }
+   
     if(winning_counter_diagonal_2 == 2) {
-        int tmp=diagonal_coor_2();
+        int tmp = diagonal_coor_2();
         if(tmp == 0)
             return 2;
     }
+    
     if(winning_counter_row == 2) {
-        int tmp=row_and_column_coordinates(0);
+        int tmp = row_and_column_coordinates(0);
         if(tmp == 0)
             return 2;
     }
-
+    
     if(winning_counter_column == 2) {
-        int tmp=row_and_column_coordinates(1);
+        int tmp = row_and_column_coordinates(1);
         if(tmp == 0)
             return 2;
     }
-
+    
    
     return 0;
     

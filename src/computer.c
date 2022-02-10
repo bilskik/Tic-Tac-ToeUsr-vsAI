@@ -19,11 +19,16 @@ int computer_move() {
 
     srand(time(NULL));
     best_case = look_for_case();
-   // printf("Best case: %d\n", best_case);
     switch(best_case) {
-        case 1:    
-            //printf("Im here!\n");
-            move = rand()% 9 + 1;   
+        case 1:  
+            while(1) {
+                move = rand()% 9 + 1;
+                int a = check_free_box(move); 
+                if(a == 0)
+                    break;
+                else 
+                    continue;  
+            }
             return move;                      //im randomizing
             break;
         case 2:
@@ -61,12 +66,34 @@ int winning_case() {
 }
 int find_free() {
     int holder;
+    char holder_char;
+
+    for(int i=0; i<n; i++) 
+        coor->coor_char[i] = coor->arr_coor[i] + '0';
+
     for(int i=0; i<n; i++) {
-        //printf("coor->arr_coor: %d\n", coor->arr_coor[i]);
-        if(coor->arr_coor[i] != 'X') 
-            holder = coor->arr_coor[i];
+        for(int j=0; j<n; j++) {
+            for(int k=0; k<n; k++) {
+                if(coor->coor_char[i] == space[j][k]) {
+                    holder = coor->arr_coor[i];
+                    break;
+                }
+            }
+       }
     }
     return holder;
+}
+
+int check_free_box(int move) {
+    
+    char changed_move = move + '0'; 
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) {
+            if(changed_move == space[i][j])
+                return 0;
+        }
+    }
+    return 1;
 }
 
 
