@@ -9,6 +9,7 @@ coor_t coordinates[n];
 important_t *coor;
 
 int defending_case() {
+
     char mark = 'X';
     int winning_counter_row=0;
     int winning_counter_column=0;
@@ -45,6 +46,7 @@ int defending_case() {
         }   
         
     }
+  //  printf("row: %d, column %d, diag_1 %d, diag_2 %d\n", winning_counter_row,winning_counter_column,winning_counter_diagonal_1,winning_counter_diagonal_2);
     if(winning_counter_diagonal_1 == 2) {
         int tmp = diagonal_coor_1();
         if(tmp == 0)

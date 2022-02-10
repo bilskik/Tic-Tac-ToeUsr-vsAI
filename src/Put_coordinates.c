@@ -12,7 +12,7 @@ important_t *coor;
 
 int row_and_column_coordinates(int a) {
     
-    coor=malloc(sizeof(coor));
+    
     int which_row;
     int tmp_tab[n]={0};
     int max;
@@ -37,14 +37,20 @@ int row_and_column_coordinates(int a) {
         }
 
     }
-
-  
+    /*for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) 
+            printf("coordinates tab %d\n", coordinates[i].tab_coor[j]);
+    }
+    */
     for(int i=0; i<n; i++) {
         if(coordinates[i].tab_coor[i] != 0 && coordinates[i].tab_coor[i] != negative_value) {
+            counter = 0;
             for(int k=0; k<n; k++) {
+                printf("coor tab_coor: %d\n", coordinates[i].tab_coor[k]);
                 if(coordinates[i].tab_coor[k] == 'X')
                     counter++;
             }
+            printf("counter: %d\n", counter);
             if(counter == 2) {
                 funny = 1;
                 for(int j=0; j<n; j++)  
@@ -52,6 +58,9 @@ int row_and_column_coordinates(int a) {
             }
         }
     
+    }
+    for(int i=0; i<n; i++) {
+        printf("coor->arr %d\n", coor->arr_coor[i]);
     }
     if (funny == 1)
         return 0;
@@ -109,12 +118,13 @@ int diagonal_coor_1() {
     int counter = 0;
 
     for(int i=0; i<n; i++) {
-         if(space[i][i] ==  'O')
+         if(space[i][i] == 'O')
             counter++;
     }
     if(counter != 1) {
-        for(int i=0; i<n; i++)
+        for(int i=0; i<n; i++) {
             coor->arr_coor[i]=i*4 +1;
+        }
         return 0;
     }
     else 
@@ -126,11 +136,11 @@ int diagonal_coor_2() {
     int j = 2;
 
     for(int i=0; i<n; i++) {
-        if(space[i][j--] == '0')
+        if(space[i][j--] == 'O')
             counter++;
     }
     if(counter != 1) {
-        for(int i=0; i<n; i++) 
+        for(int i=0; i<n; i++)
             coor->arr_coor[i]=i*2 + 3;
         return 0;
     }

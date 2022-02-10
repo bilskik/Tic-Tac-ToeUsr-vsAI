@@ -5,12 +5,14 @@
 
 #include "komputer.h"
 #include "Part_1.h"
+#include "Coordinates.h"
 
 #define n 3
 #define max_name_length 100
 
 extern char space[n][n];
 char show_space[n][n];
+important_t *coor;
 
 //initiation a show_space[][] from 1 to 9
 void initiation_show_space() {
@@ -264,6 +266,7 @@ int main(int argc, char **argv) {
     int counter_of_points_player_2=0;
     char bufor[max_name_length];
     int tmp_draw;
+    coor=malloc(sizeof(coor));
 
 
     //printf("Wprowadz imie 1 gracza!\n");
@@ -333,6 +336,7 @@ int main(int argc, char **argv) {
         while(1) {                                                         //entering a move (player 2)
             player_1_choice = -1;
             player_2_choice = computer_move();
+            printf("computer choice: %d\n", player_2_choice);
             a = enter_value(player_1_choice, player_2_choice);
             if(a == 0)
                 break;

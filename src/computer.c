@@ -15,19 +15,20 @@ int computer_move() {
 
     int move;
     int best_case = 1;
-    coor=malloc(sizeof(coor));
+    
 
     srand(time(NULL));
     best_case = look_for_case();
-    printf("Best case: %d\n", best_case);
+   // printf("Best case: %d\n", best_case);
     switch(best_case) {
         case 1:    
-            printf("Im here!\n");
+            //printf("Im here!\n");
             move = rand()% 9 + 1;   
             return move;                      //im randomizing
             break;
         case 2:
             move = find_free();  
+            printf("move byl zamierzony: %d\n", move);
             return move;                      //im defending myself
             break;
         case 3:                         //im looking for win
@@ -45,7 +46,8 @@ int look_for_case() {
     
     int stand = winning_case();
     int stand_2 = defending_case();
-    if (stand_2 >= stand)
+    //printf("stand_2 = %d\n", stand_2);
+    if (stand_2 >= stand && stand_2 == 2)
         return 2;
     else if(stand > stand_2)
         return 3;
@@ -60,11 +62,11 @@ int winning_case() {
 int find_free() {
     int holder;
     for(int i=0; i<n; i++) {
-        if(coor->arr_coor[i] != 'X') {
+        //printf("coor->arr_coor: %d\n", coor->arr_coor[i]);
+        if(coor->arr_coor[i] != 'X') 
             holder = coor->arr_coor[i];
-            return holder;
-        }
     }
+    return holder;
 }
 
 
