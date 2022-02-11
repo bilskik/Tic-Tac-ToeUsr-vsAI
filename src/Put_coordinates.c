@@ -94,23 +94,24 @@ void insert_column(int tmp_tab[], int x_counter[]) {
 
       for(int i=0; i<n; i++) {
         for(int j=0; j<n; j++) {
-            if((space[j][i] == 'X' || space[j][i] == '0') && i == 0 ) {
+            if((space[j][i] == 'X' || space[j][i] == 'O') && i == 0 ) {
                 if(space[j][i] == 'X')
                     x_counter[0]++;
                 tmp_tab[0]++;
             }
-            else if((space[j][i] == 'X' || space[j][i] == '0') && i == 1) {
+            else if((space[j][i] == 'X' || space[j][i] == 'O') && i == 1) {
                 if(space[j][i] == 'X')
                     x_counter[1]++;
                 tmp_tab[1]++;
             }
-            else if((space[j][i] == 'X' || space[j][i] == '0') && i == 2) {
+            else if((space[j][i] == 'X' || space[j][i] == 'O') && i == 2) {
                 if(space[j][i] == 'X')
                     x_counter[2]++;
                 tmp_tab[2]++;
             }
         }
     }
+    
      for(int i=0; i<n; i++) { 
         for(int j=0; j<n; j++) {
             coordinates[i].tab_coor[j]=3*j + i+1;

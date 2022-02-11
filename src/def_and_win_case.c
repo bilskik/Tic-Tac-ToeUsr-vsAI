@@ -51,25 +51,25 @@ int defending_case() {
         if(tmp == 0)
             return 2;
     }
-   
+   printf("Po dia_coor_1\n");
     if(winning_counter_diagonal_2 == 2) {
         int tmp = diagonal_coor_2();
         if(tmp == 0)
             return 2;
     }
-    
+    printf("Po dia_coor_2\n");
     if(winning_counter_row == 2) {
         int tmp = row_and_column_coordinates(0);
         if(tmp == 0)
             return 2;
     }
-    
+    printf("Po row\n");
     if(winning_counter_column == 2) {
         int tmp = row_and_column_coordinates(1);
         if(tmp == 0)
             return 2;
     }
-    
+    printf("Po column\n");
    
     return 0;
     

@@ -283,8 +283,8 @@ int main(int argc, char **argv) {
         
        // sleep(1);
        // system("clear");
-        printf("POMOC:\n");
-        show_numbers();
+        //printf("POMOC:\n");
+        //show_numbers();
         printf("\n");
         printf("AKTUALNY STAN MAPY\n");
         map();
@@ -298,7 +298,7 @@ int main(int argc, char **argv) {
             if (search == 0)
                 break;            
         }
-        map();
+        //map();
         final_state=look_for_sol('X');
          if(final_state == 1) {                 //if player 1 is winning
              printf("Gratulacje dla %s za zwyciestwo w tej rundzie!\n", player_1_name);
@@ -333,11 +333,14 @@ int main(int argc, char **argv) {
         
 
         printf("Ruch wykonuje gracz: %s: \n", player_2_name);
-       
+        int v = 0;
         while(1) { 
                                                                    //entering a move (player 2)
             player_1_choice = -1;
             player_2_choice = computer_move();
+            if(v == 4)
+                return 0;
+            v++;
             a = enter_value(player_1_choice, player_2_choice);
             if(a == 0)
                 break;

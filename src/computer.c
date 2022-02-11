@@ -23,6 +23,7 @@ int computer_move() {
         case 1:  
             while(1) {
                 move = rand()% 9 + 1;
+                
                 int a = check_free_box(move); 
                 if(a == 0)
                     break;
@@ -51,7 +52,7 @@ int look_for_case() {
     
     int stand = winning_case();
     int stand_2 = defending_case();
-    //printf("stand_2 = %d\n", stand_2);
+    printf("stand_2 = %d\n", stand_2);
     if (stand_2 >= stand && stand_2 == 2)
         return 2;
     else if(stand > stand_2)
