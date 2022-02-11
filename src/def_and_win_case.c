@@ -8,7 +8,7 @@ char space[n][n];
 coor_t coordinates[n];
 important_t *coor;
 
-int defending_case() {
+int defending_case() {        //im looking two X (in row, column, diagonal_1, diagonal_2)
 
     char mark = 'X';
     int winning_counter_row=0;
@@ -46,32 +46,29 @@ int defending_case() {
         }   
         
     }
-    if(winning_counter_diagonal_1 == 2) {
+    if(winning_counter_diagonal_1 == 2) {           //if i ve found two X in diagonal_1
         int tmp = diagonal_coor_1();
         if(tmp == 0)
             return 2;
     }
-   printf("Po dia_coor_1\n");
-    if(winning_counter_diagonal_2 == 2) {
+
+    if(winning_counter_diagonal_2 == 2) {           // if i ve found two X in diagonal_2
         int tmp = diagonal_coor_2();
         if(tmp == 0)
             return 2;
     }
-    printf("Po dia_coor_2\n");
-    if(winning_counter_row == 2) {
+    if(winning_counter_row == 2) {                  // if i ve found two X in some rows
         int tmp = row_and_column_coordinates(0);
         if(tmp == 0)
             return 2;
     }
-    printf("Po row\n");
-    if(winning_counter_column == 2) {
+    if(winning_counter_column == 2) {               // if i ve found two X in some columns
         int tmp = row_and_column_coordinates(1);
         if(tmp == 0)
             return 2;
     }
-    printf("Po column\n");
    
-    return 0;
+    return 0;                                       // if i havent found anything(so i dont have to defend myself)
     
 }
 

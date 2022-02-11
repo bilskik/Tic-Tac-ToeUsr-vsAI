@@ -283,8 +283,8 @@ int main(int argc, char **argv) {
         
        // sleep(1);
        // system("clear");
-        //printf("POMOC:\n");
-        //show_numbers();
+        printf("POMOC:\n");
+        show_numbers();
         printf("\n");
         printf("AKTUALNY STAN MAPY\n");
         map();
