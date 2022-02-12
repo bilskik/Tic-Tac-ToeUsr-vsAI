@@ -1,5 +1,5 @@
+#include "def_coor.h"
 
-#include "Coordinates.h"
 #include <stdio.h>
 #include <stdlib.h>
 

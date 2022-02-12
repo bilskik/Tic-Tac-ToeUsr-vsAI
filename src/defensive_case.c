@@ -1,5 +1,7 @@
-#include "Part_1.h"    
-#include "Coordinates.h"             //defending case
+#include "defensive.h"
+#include "computer.h"
+#include "def_coor.h"
+                          //defending case
 #include <stdio.h>
 #include <stdlib.h>
 #define n 3

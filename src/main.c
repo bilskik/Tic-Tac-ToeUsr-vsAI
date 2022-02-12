@@ -3,9 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "komputer.h"
-#include "Part_1.h"
-#include "Coordinates.h"
+#include "defensive.h"
+#include "computer.h"
+#include "def_coor.h"
 
 #define n 3
 #define max_name_length 100

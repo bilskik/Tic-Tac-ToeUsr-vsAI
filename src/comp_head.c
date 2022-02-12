@@ -1,6 +1,7 @@
-#include "komputer.h"
-#include "Part_1.h"
-#include "Coordinates.h"
+#include "defensive.h"
+#include "computer.h"
+#include "def_coor.h"
+#include "win_header.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,7 +34,7 @@ int computer_move() {
             break;
         case 2:                             //im defending myself
             move = find_free();  
-            //printf("move byl zamierzony: %d\n", move);
+            printf("move byl zamierzony: %d\n", move);
             return move;                     
             break;
         case 3:                         //im going to win with u
@@ -61,9 +62,7 @@ int look_for_case() {           //choosing best case
     else
         return 1;
 }   
-int winning_case() {                        //winning case( it will be implemented in future)
-    return 0;  
-}
+
 int find_free() {                       //find a place where i can defend
     int holder;
     char holder_char;
