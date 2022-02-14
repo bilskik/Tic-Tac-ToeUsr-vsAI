@@ -7,5 +7,6 @@ int computer_move();
 int look_for_case();
 int find_free();
 int check_free_box();
+int find_pos();
 
 #endif

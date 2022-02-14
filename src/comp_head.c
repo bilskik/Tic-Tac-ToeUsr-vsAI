@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define n 3
+#define negative_value 10
 
 char space[n][n];
 important_t *coor;
@@ -24,12 +26,14 @@ int computer_move() {
         case 1:                             //move is random
             while(1) {
                 move = rand()% 9 + 1;
+                printf("case 1: %d\n", move);
                 int a = check_free_box(move); 
                 if(a == 0)
                     break;
                 else 
                     continue;  
             }
+            
             return move;                      
             break;
         case 2:                             //im defending myself
@@ -37,7 +41,10 @@ int computer_move() {
             printf("move byl zamierzony: %d\n", move);
             return move;                     
             break;
-        case 3:                         //im going to win with u
+        case 3:
+            move = find_pos();
+            printf("Wygrywam! my move: %d\n", move);
+            return move;                                                         //im going to win with u
             break;
         default:  
                                //if box is full
@@ -50,14 +57,16 @@ int computer_move() {
 
 int look_for_case() {           //choosing best case
     
-    int stand = winning_case();
+    //int stand = 0;
+    int stand_1 = winning_case();
     int stand_2 = defending_case();
+    printf("win_stand: %d , def_stand: %d\n", stand_1, stand_2);
 
-    if (stand_2 >= stand && stand_2 == 2)
-        return 2;
-    else if(stand > stand_2)
+    if (stand_1 == 3 && stand_2 == 2 || stand_1 > stand_2)
         return 3;
-    else if(stand_2 == 0 && stand == 0)
+    else if(stand_2 > stand_1)
+        return 2;
+    else if(stand_2 == 0 && stand_1 == 0)
         return 1;
     else
         return 1;
@@ -93,6 +102,18 @@ int check_free_box(int move) {                          //when move is random ch
         }
     }
     return 1;
+}
+int find_pos() {
+    for(int i=0; i<n; i++) {
+        printf("arr_coor iter: %d\n", coor->win_coor[i]);
+    }
+    for(int i=0; i<n; i++) {
+       
+        if(coor->win_coor[i] != negative_value) {
+             printf("arr_coor: %d\n", coor->win_coor[i]);
+            return coor->win_coor[i];
+        }
+    }
 }
 
 

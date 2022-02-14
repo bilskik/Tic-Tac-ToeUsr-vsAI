@@ -12,6 +12,7 @@ typedef struct coor {
 
 typedef struct important {
     int arr_coor[n];
+    int win_coor[n];
     char coor_char[n];
 }important_t;
 
