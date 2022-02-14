@@ -47,7 +47,7 @@ int row_win() {
                 coor->win_coor[j] = negative_value;
             }
         }
-        printf("funny row %d, funny_ o %d\n", funny, funny_o);
+        //printf("funny row %d, funny_ o %d\n", funny, funny_o);
         if(funny == 1 && funny_o == 2)
             return 3;
     }
@@ -71,10 +71,7 @@ int col_win() {
                 coor->win_coor[j] = negative_value; 
             }
         }
-        for(int i=0; i<n; i++) {
-        printf("win_coor iter in colwin(): %d\n", coor->win_coor[i]);
-         }
-        printf("funny col: %d\n , funny_o: %d\n", funny, funny_o);
+       // printf("funny col: %d\n , funny_o: %d\n", funny, funny_o);
         if(funny == 1 && funny_o == 2)
             return 3;
     }

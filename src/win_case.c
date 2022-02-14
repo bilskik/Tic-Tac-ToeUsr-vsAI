@@ -58,22 +58,22 @@ int winning_case() {
     }
     if(winning_counter_diagonal_1 == 2) {
         int tmp = diagonal_1_win();
-        printf("tmp dia_1: %d\n", tmp);
+        //printf("tmp dia_1: %d\n", tmp);
         return tmp;
     }
     if(winning_counter_diagonal_2 == 2) {
         int tmp=diagonal_2_win();
-        printf("tmp dia_2: %d\n", tmp);
+       // printf("tmp dia_2: %d\n", tmp);
         return tmp;
     }
     if(winning_counter_row == 2) {
         int tmp=row_win();
-        printf("tmp row: %d\n", tmp);
+       // printf("tmp row: %d\n", tmp);
         return tmp;
     }
     if(winning_counter_column == 2) {
         int tmp=col_win();
-        printf("tmp col: %d\n", tmp);
+       // printf("tmp col: %d\n", tmp);
         return tmp;
     }
 

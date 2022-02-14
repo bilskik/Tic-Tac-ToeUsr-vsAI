@@ -57,10 +57,9 @@ int computer_move() {
 
 int look_for_case() {           //choosing best case
     
-    //int stand = 0;
     int stand_1 = winning_case();
     int stand_2 = defending_case();
-    printf("win_stand: %d , def_stand: %d\n", stand_1, stand_2);
+    //printf("win_stand: %d , def_stand: %d\n", stand_1, stand_2);
 
     if (stand_1 == 3 && stand_2 == 2 || stand_1 > stand_2)
         return 3;
@@ -104,15 +103,10 @@ int check_free_box(int move) {                          //when move is random ch
     return 1;
 }
 int find_pos() {
+   
     for(int i=0; i<n; i++) {
-        printf("arr_coor iter: %d\n", coor->win_coor[i]);
-    }
-    for(int i=0; i<n; i++) {
-       
-        if(coor->win_coor[i] != negative_value) {
-             printf("arr_coor: %d\n", coor->win_coor[i]);
+        if(coor->win_coor[i] != negative_value) 
             return coor->win_coor[i];
-        }
     }
 }
 
