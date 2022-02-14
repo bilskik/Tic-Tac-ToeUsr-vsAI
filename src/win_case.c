@@ -25,31 +25,27 @@ int winning_case() {
         tmp_counter_column = 0;
         tmp_counter_row = 0;
         
-        if(space[i][i] ==  mark) {
+        if(space[i][i] ==  mark) 
             winning_counter_diagonal_1++;
-            if(space[i][i] == mark_X)
-                winning_counter_diagonal_1--;
-        }
+        if(space[i][i] == mark_X)
+            winning_counter_diagonal_1--;
 
         for(int j=0; j<n; j++) {
 
-            if(space[i][j] == mark) {
+            if(space[i][j] == mark) 
                 tmp_counter_row++;
-                if(space[i][i] == mark_X)
-                    tmp_counter_row--;
-            }
+            if(space[i][j] == mark_X)
+                tmp_counter_row--;
 
-            if(space[j][i] == mark) {
+            if(space[j][i] == mark) 
                 tmp_counter_column++;
-                    if(space[j][i] == mark_X)
-                        tmp_counter_column--;
-            }
+            if(space[j][i] == mark_X)
+                tmp_counter_column--;
 
-            if( (i+j) == 2 && space[i][j] == mark) {
+            if( (i+j) == 2 && space[i][j] == mark) 
                 winning_counter_diagonal_2++;
-                if((i+j) == 2 && space[i][j] == mark_X)
-                    winning_counter_diagonal_2--;
-            }
+            if((i+j) == 2 && space[i][j] == mark_X)
+                winning_counter_diagonal_2--;
 
          
 
