@@ -2,6 +2,7 @@
 #include "computer.h"
 #include "def_coor.h"
 #include "win_header.h"
+#include "header_attack.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,8 +47,10 @@ int computer_move() {
             printf("Wygrywam! my move: %d\n", move);
             return move;                                                         //im going to win with u
             break;
-        default:  
-                               //if box is full
+        case 4:   
+            return move;                                            //attack case
+            break;
+        default:
             break;
 
     }
@@ -59,14 +62,15 @@ int look_for_case() {           //choosing best case
     
     int stand_1 = winning_case();
     int stand_2 = defending_case();
+    int stand_3 = attack_case();
     //printf("win_stand: %d , def_stand: %d\n", stand_1, stand_2);
 
     if (stand_1 == 3 && stand_2 == 2 || stand_1 > stand_2)
         return 3;
     else if(stand_2 > stand_1)
         return 2;
-    else if(stand_2 == 0 && stand_1 == 0)
-        return 1;
+    else if(stand_2 == 0 && stand_1 == 0 && stand_3 > 0)
+        return 4;
     else
         return 1;
 }   
