@@ -19,15 +19,16 @@ int computer_move() {
 
     int move;
     int best_case = 1;
-    
-
     srand(time(NULL));
     best_case = look_for_case();   //im looking for best case(attack or defend)
     switch(best_case) {             
-        case 1:                             //move is random
+        case 1:                                          //move is random
+            move = 5;
+            int check = check_free_box(move);
+            if(check == 0) 
+                return move;                                 
             while(1) {
-                move = rand()% 9 + 1;
-                printf("case 1: %d\n", move);
+                move= (rand() % ((12 - 1)/ 2)) * 2 + 1;
                 int a = check_free_box(move); 
                 if(a == 0)
                     break;
@@ -39,12 +40,12 @@ int computer_move() {
             break;
         case 2:                             //im defending myself
             move = find_free();  
-            printf("move byl zamierzony: %d\n", move);
+            //printf("move byl zamierzony: %d\n", move);
             return move;                     
             break;
         case 3:
             move = find_pos();
-            printf("Wygrywam! my move: %d\n", move);
+            //printf("Wygrywam! my move: %d\n", move);
             return move;                                                         //im going to win with u
             break;
         case 4:   
