@@ -21,6 +21,7 @@ int computer_move() {
     int best_case = 1;
     srand(time(NULL));
     best_case = look_for_case();   //im looking for best case(attack or defend)
+    printf("best case: %d\n", best_case);
     switch(best_case) {             
         case 1:                                          //move is random
             move = 5;
@@ -40,15 +41,17 @@ int computer_move() {
             break;
         case 2:                             //im defending myself
             move = find_free();  
-            //printf("move byl zamierzony: %d\n", move);
+            printf("move byl zamierzony: %d\n", move);
             return move;                     
             break;
         case 3:
             move = find_pos();
-            //printf("Wygrywam! my move: %d\n", move);
+            printf("Wygrywam! my move: %d\n", move);
             return move;                                                         //im going to win with u
             break;
         case 4:   
+            move = find_attack();
+            printf("atakuje! move: %d\n", move);
             return move;                                            //attack case
             break;
         default:
@@ -115,4 +118,11 @@ int find_pos() {
     }
 }
 
+int find_attack() {
+
+    for(int i=0; i<n; i++) {
+        if(coor->att_coor[i] != negative_value)
+            return coor->att_coor[i];
+    }
+}
 
