@@ -73,24 +73,24 @@ int attack_case() {
     }
 
     if(winning_counter_diagonal_1 == 3 && dia_1_o == 1) {
-        int tmp = diagonal_1_attack();
-        //printf("tmp dia_1: %d\n", tmp);
-        return tmp;
+        return diagonal_1_attack();
+      
+       
     }
     if(winning_counter_diagonal_2 == 3 && dia_2_o == 1) {
-        int tmp=diagonal_2_attack();
-       // printf("tmp dia_2: %d\n", tmp);
-        return tmp;
+        return diagonal_2_attack();
+       
+      
     }
     if(winning_counter_row == 3) {
-        int tmp=row_attack(which_row);
-       // printf("tmp row: %d\n", tmp);
-        return tmp;
+        return row_attack(which_row);
+    
+       
     }
     if(winning_counter_column == 3) {
-        int tmp=col_attack(which_col);
-       // printf("tmp col: %d\n", tmp);
-        return tmp;
+        return col_attack(which_col);
+  
+       
     }
     return 0;
 }

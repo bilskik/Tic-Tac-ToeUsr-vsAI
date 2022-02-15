@@ -18,10 +18,10 @@ important_t *coor;
 int computer_move() {
 
     int move;
-    int best_case = 1;
+    int best_case = 0;
+    int count = 0;
     srand(time(NULL));
     best_case = look_for_case();   //im looking for best case(attack or defend)
-    printf("best case: %d\n", best_case);
     switch(best_case) {             
         case 1:                                          //move is random
             move = 5;
@@ -31,6 +31,17 @@ int computer_move() {
             while(1) {
                 move= (rand() % ((12 - 1)/ 2)) * 2 + 1;
                 int a = check_free_box(move); 
+                count++;
+                if(count == 30) {
+                    while(1) {
+                        move = rand() % 9 + 1;
+                        int b = check_free_box(move);
+                        if(b == 0)
+                            return move;
+                        else
+                            continue;
+                    }
+                }
                 if(a == 0)
                     break;
                 else 
@@ -41,17 +52,14 @@ int computer_move() {
             break;
         case 2:                             //im defending myself
             move = find_free();  
-            printf("move byl zamierzony: %d\n", move);
             return move;                     
             break;
         case 3:
             move = find_pos();
-            printf("Wygrywam! my move: %d\n", move);
             return move;                                                         //im going to win with u
             break;
         case 4:   
             move = find_attack();
-            printf("atakuje! move: %d\n", move);
             return move;                                            //attack case
             break;
         default:
@@ -67,7 +75,6 @@ int look_for_case() {           //choosing best case
     int stand_1 = winning_case();
     int stand_2 = defending_case();
     int stand_3 = attack_case();
-    //printf("win_stand: %d , def_stand: %d\n", stand_1, stand_2);
 
     if (stand_1 == 3 && stand_2 == 2 || stand_1 > stand_2)
         return 3;
